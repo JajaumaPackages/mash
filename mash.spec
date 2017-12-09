@@ -1,13 +1,17 @@
+%global gitdate 20171209
+%global gitversion 0.6.19
+%global gitcommit dca1a53
+
 %{!?python_sitelib: %define python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print get_python_lib()")}
 
 Name:           mash
-Version:        0.6.19
-Release:        1%{?dist}
+Version:        %{gitversion}
+Release:        2.git%{gitdate}.%{gitcommit}%{?dist}
 Summary:        Koji buildsystem to yum repository converter
 Group:          Development/Tools
 License:        GPLv2
 URL:            https://pagure.io/mash
-Source0:        http://fedorahosted.org/releases/m/a/mash/%{name}-%{version}.tar.gz
+Source0:        mash.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Requires:       yum, createrepo, koji, python-multilib
 Conflicts:	pungi < 1.0.0
@@ -20,7 +24,7 @@ any particular tag, and creates repositories of those RPMs, including
 any multlib RPMs that are necessary.
 
 %prep
-%setup -q
+%setup -q -n mash
 
 %build
 %{__python} setup.py build
@@ -44,6 +48,9 @@ rm -rf $RPM_BUILD_ROOT
 /var/cache/mash
 
 %changelog
+* Sat Dec 09 2017 Jajauma's Packages <jajauma@yandex.ru> - 0.6.19-2.git20171209.dca1a53
+- Update to latest git snapshot
+
 * Thu Sep 24 2015 Till Maas <opensource@till.name> - 0.6.19-1
 - Use Fedora 24 key for Rawhide
 - Update URL in SPEC
