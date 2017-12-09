@@ -6,7 +6,7 @@
 
 Name:           mash
 Version:        %{gitversion}
-Release:        2.git%{gitdate}.%{gitcommit}%{?dist}
+Release:        4.git%{gitdate}.%{gitcommit}%{?dist}
 Summary:        Koji buildsystem to yum repository converter
 Group:          Development/Tools
 License:        GPLv2
@@ -48,7 +48,7 @@ rm -rf $RPM_BUILD_ROOT
 /var/cache/mash
 
 %changelog
-* Sat Dec 09 2017 Jajauma's Packages <jajauma@yandex.ru> - 0.6.19-2.git20171209.dca1a53
+* Sat Dec 09 2017 Jajauma's Packages <jajauma@yandex.ru> - 0.6.19-4.git20171209.dca1a53
 - Update to latest git snapshot
 
 * Thu Sep 24 2015 Till Maas <opensource@till.name> - 0.6.19-1
